@@ -1,28 +1,86 @@
-variable "consul_base_path" {
-  default     = "polymathes/NewRelic"
+variable "account-id" {
   type        = string
-  description = "Consul path New Relic"
+  description = "New Relic account id"
 }
 
-variable "consul_app_path" {
+variable "api-key" {
   type        = string
-  description = "Consul path New Relic"
+  description = "New Relic api-key"
 }
 
-variable "consul_token" {
+variable "newrelic-region" {
   type        = string
-  description = "Token for accessing consul"
-  sensitive   = true
+  description = "New Relic region"
 }
 
-variable "consul_url" {
-  default     = "consul.smu-labs.cl"
+variable "newrelic_policyName" {
   type        = string
-  description = "Consul url"
+  description = "Newrelic policy name"
 }
 
-variable "consul_datacenter" {
-  default     = "us-east-1"
+variable "alertName" {
   type        = string
-  description = "Consul datacenter"
+  description = "Alert Name"
 }
+
+variable "alertDescription" {
+  type        = string
+  description = "Description of the alert"
+}
+
+variable "runbookURL" {
+  type        = string
+  description = "runbookURL"
+}
+
+variable "query" {
+  type        = string
+  description = "Query to run for getting the alert"
+}
+
+variable "criticalOperator" {
+  type        = string
+  description = "Operator for identifying when the case in critical"
+}
+
+variable "criticalThreshold" {
+  type        = string
+  description = "How many time should the case shoul be identified to get an alert"
+}
+
+variable "criticalThresholdDuration" {
+  type        = string
+  description = "Threshold Duration in secs"
+}
+
+variable "criticalThresholdOccurrences" {
+  type        = string
+  description = "Threshold Occurrences"
+}
+
+variable "alert_channelName" {
+  type        = string
+  description = "Channel Name"
+}
+
+variable "alert_channelType" {
+  type        = string
+  description = "Channel Type"
+}
+
+variable "alert_recipients" {
+  type        = string
+  description = "Recipients"
+}
+
+variable "alert_slackUrl" {
+  type        = string
+  description = "Url for slack's URL"
+}
+
+variable "alert_slackChannel" {
+  type        = string
+  description = "Slack Channel's Name"
+}
+
+
