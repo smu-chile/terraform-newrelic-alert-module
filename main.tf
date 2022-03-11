@@ -2,18 +2,18 @@
 
 //Creación de politica de alerta//
 resource "newrelic_alert_policy" "alertpolicylogs" {
-  name                = data.consul_keys.input.var.newrelic_policyName
+  name                = var.newrelic_policyName
   incident_preference = "PER_CONDITION"
 }
 
 //Condición para ejecutar alerta//
 resource "newrelic_nrql_alert_condition" "nrql_alert_condition" {
-  account_id                   = data.consul_keys.input.var.account-id
+  account_id                   = var.account-id
   policy_id                    = newrelic_alert_policy.alertpolicylogs.id
   type                         = "static"
-  name                         = data.consul_keys.input.var.alertName
-  description                  = data.consul_keys.input.var.alertDescription
-  runbook_url                  = data.consul_keys.input.var.runbookURL
+  name                         = var.alertName
+  description                  = var.alertDescription
+  runbook_url                  = var.runbookURL
   enabled                      = true
   violation_time_limit_seconds = 18000
   value_function               = "single_value"
@@ -24,25 +24,25 @@ resource "newrelic_nrql_alert_condition" "nrql_alert_condition" {
   aggregation_window = 300
 
   nrql {
-    query             = data.consul_keys.input.var.query
+    query             = var.query
     evaluation_offset = 1
   }
 
   critical {
-    operator              = data.consul_keys.input.var.criticalOperator
-    threshold             = data.consul_keys.input.var.criticalThreshold
-    threshold_duration    = data.consul_keys.input.var.criticalThresholdDuration
-    threshold_occurrences = data.consul_keys.input.var.criticalThresholdOccurrences
+    operator              = var.criticalOperator
+    threshold             = var.criticalThreshold
+    threshold_duration    = var.criticalThresholdDuration
+    threshold_occurrences = var.criticalThresholdOccurrences
   }
 }
 
 resource "newrelic_alert_channel" "alert_chanel" {
-  name = data.consul_keys.input.var.alert_channelName
+  name = var.alert_channelName
   type = "slack"
 
   config {
-    url     = data.consul_keys.input.var.alert_slackUrl
-    channel = data.consul_keys.input.var.alert_slackChannel
+    url     = var.alert_slackUrl
+    channel = var.alert_slackChannel
   }
 }
 
