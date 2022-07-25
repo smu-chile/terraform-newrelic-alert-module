@@ -17,6 +17,8 @@ resource "newrelic_nrql_alert_condition" "nrql_alert_condition" {
   enabled                      = var.enabled
   violation_time_limit_seconds = var.violation_time_limit_seconds
   aggregation_method           = var.aggregation_method
+  aggregation_delay            = var.aggregation_delay
+  aggregation_window           = var.aggregation_window
   fill_option                  = var.fill_option
   fill_value                   = var.fill_value
 
