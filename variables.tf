@@ -106,7 +106,7 @@ variable "violation_time_limit_seconds" {
   description = "Time limit for violation (seconds)"
 }
 
-variable "enable" {
+variable "enabled" {
   default     = true
   description = "Is alert enabled?"
 }
