@@ -10,22 +10,18 @@ resource "newrelic_alert_policy" "alertpolicylogs" {
 resource "newrelic_nrql_alert_condition" "nrql_alert_condition" {
   account_id                   = var.account-id
   policy_id                    = newrelic_alert_policy.alertpolicylogs.id
-  type                         = "static"
+  type                         = var.type
   name                         = var.alertName
   description                  = var.alertDescription
   runbook_url                  = var.runbookURL
-  enabled                      = true
-  violation_time_limit_seconds = 18000
-  value_function               = "single_value"
-
-  fill_option = "static"
-  fill_value  = 0
-
-  aggregation_window = 300
+  enabled                      = var.enabled
+  violation_time_limit_seconds = var.violation_time_limit_seconds
+  aggregation_method           = var.aggregation_method
+  fill_option                  = var.fill_option
+  fill_value                   = var.fill_value
 
   nrql {
-    query             = var.query
-    evaluation_offset = 1
+    query = var.query
   }
 
   critical {

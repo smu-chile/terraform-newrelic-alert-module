@@ -83,4 +83,45 @@ variable "alert_slackChannel" {
   description = "Slack Channel's Name"
 }
 
+variable "aggregation_method" {
+  default     = null
+  type        = string
+  description = "Aggregation method"
+}
 
+variable "aggregation_delay" {
+  default     = null
+  type        = string
+  description = "Aggregation delay"
+}
+
+variable "aggregation_window" {
+  default     = null
+  type        = string
+  description = "Aggregation window"
+}
+
+variable "violation_time_limit_seconds" {
+  default     = 18000
+  description = "Time limit for violation (seconds)"
+}
+
+variable "enable" {
+  default     = true
+  description = "Is alert enabled?"
+}
+
+variable "type" {
+  default     = "static"
+  description = "Alert types"
+}
+
+variable "fill_option" {
+  default     = "static"
+  description = "Fill option"
+}
+
+variable "fill_value" {
+  default     = "1"
+  description = "Fill value"
+}
