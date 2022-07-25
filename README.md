@@ -45,7 +45,7 @@ No modules.
 | <a name="input_criticalThreshold"></a> [criticalThreshold](#input\_criticalThreshold) | How many time should the case shoul be identified to get an alert | `string` | n/a | yes |
 | <a name="input_criticalThresholdDuration"></a> [criticalThresholdDuration](#input\_criticalThresholdDuration) | Threshold Duration in secs | `string` | n/a | yes |
 | <a name="input_criticalThresholdOccurrences"></a> [criticalThresholdOccurrences](#input\_criticalThresholdOccurrences) | Threshold Occurrences | `string` | n/a | yes |
-| <a name="input_enable"></a> [enable](#input\_enable) | Is alert enabled? | `bool` | `true` | no |
+| <a name="input_enabled"></a> [enabled](#input\_enabled) | Is alert enabled? | `bool` | `true` | no |
 | <a name="input_fill_option"></a> [fill\_option](#input\_fill\_option) | Fill option | `string` | `"static"` | no |
 | <a name="input_fill_value"></a> [fill\_value](#input\_fill\_value) | Fill value | `string` | `"1"` | no |
 | <a name="input_newrelic-region"></a> [newrelic-region](#input\_newrelic-region) | New Relic region | `string` | n/a | yes |
